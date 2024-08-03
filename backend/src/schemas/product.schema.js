@@ -11,6 +11,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
+      enum: ["stainless steel", "aluminum", "copper", "other"],
     },
     grade: {
       type: String,

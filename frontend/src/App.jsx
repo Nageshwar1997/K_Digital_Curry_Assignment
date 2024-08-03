@@ -1,26 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
+import fetchProducts from "./redux/store/store";
 
 function App() {
-  console.log(process.env.REACT_APP_BACKEND_URL);
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  return <div className="App">{process.env.REACT_APP_BACKEND_URL}</div>;
 }
 
 export default App;
