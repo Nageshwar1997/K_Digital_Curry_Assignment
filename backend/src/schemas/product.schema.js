@@ -1,63 +1,45 @@
 const mongoose = require("mongoose");
-
 const productSchema = new mongoose.Schema(
   {
-    name: {
+    productName: {
       type: String,
       required: true,
-      trim: true,
     },
     material: {
       type: String,
       required: true,
-      trim: true,
-      enum: ["stainless steel", "aluminum", "copper", "other"],
     },
-    grade: {
-      type: String,
+    grades: {
+      type: [String],
       required: true,
-      trim: true,
     },
-    price: {
-      type: Number,
-      required: true,
-      trim: true,
-    },
+    price: Number,
     details: {
-      materialThickness: {
-        type: String,
-        required: true,
-        trim: true,
-      },
       shape: {
         type: String,
-        required: true,
-        trim: true,
-        enum: ["round", "square", "other"],
-        default: "round",
+        default: "",
+      },
+      thickness: {
+        type: String,
+        default: "",
       },
       surfaceFinish: {
         type: String,
-        required: true,
-        trim: true,
+        default: "",
       },
       length: {
         type: String,
-        required: true,
-        trim: true,
-        enum: ["single", "range", "multiple", "other"],
-        default: "single",
+        default: "",
       },
       outsideDiameter: {
         type: String,
-        required: true,
-        trim: true,
+        default: "",
       },
     },
   },
   {
-    timestamps: true,
     versionKey: false,
+    timestamps: true,
   }
 );
 
